@@ -12,19 +12,23 @@ const separator = "=";
 addButton.onclick = function () {
   let input = document.getElementById("key-value").value;
   let [key, value] = input.split(separator);
+  if (!input) {
+    // no actions if input is empty
+    return;
+  }
   key = key.trim();
   value = value.trim();
+  const errorMessage = document.getElementById("error-message");
   if (regex.test(key) && regex.test(value)) {
     storage.set(key, value);
     document.getElementById("key-value").value = "";
-    const errorMessage = document.getElementById("error-message");
     if (errorMessage) {
       errorMessage.remove();
     }
     showItems();
   } else {
     const form = document.getElementById("input-form");
-    if (document.getElementById("error-message") == null) {
+    if (!errorMessage) {
       const errorMessage = document.createElement("p");
       errorMessage.innerHTML = "Invalid input. use name=value format";
       errorMessage.id = "error-message";
@@ -40,7 +44,6 @@ sortByNameButton.onclick = function () {
     })
   );
   showItems();
-  console.log("sort by name");
 };
 
 sortByValueButton.onclick = function () {
@@ -50,7 +53,6 @@ sortByValueButton.onclick = function () {
     })
   );
   showItems();
-  console.log("sort by value");
 };
 
 deleteButton.onclick = function () {
@@ -70,7 +72,7 @@ deleteButton.onclick = function () {
 
 function showItems() {
   const container = document.getElementById("key-value-container");
-  //   clear previous items
+  //   clear previous elements
   container.innerHTML = "";
   storage.forEach((value, key) => {
     const checkbox = document.createElement("input");

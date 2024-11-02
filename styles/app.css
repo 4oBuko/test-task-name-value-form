@@ -35,6 +35,7 @@ textarea{
 
 #pairs-list {
     display: flex;
+    text-align: center;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
     max-width: 400px; /* Set the desired width for both elements */
