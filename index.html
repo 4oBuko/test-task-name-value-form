@@ -1,13 +1,38 @@
 <!DOCTYPE html>
+<link href="styles/app.css" rel="stylesheet" />
+<script src="js/main.js" defer></script>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key/Value form</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name/Value form</title>
+  </head>
+  <body>
     <h1>Key/Value form</h1>
-    
-    <input type="text" >
-</body>
+    <div>
+      <div id="input-form">
+        <label for="key-value">Name/Value pair</label>
+        <input type="text" name="key-value" id="key-value" />
+        <button type="button" name="add-pair" id="add-pair">Add</button>
+      </div>
+      
+      <div id="pairs-list">
+        <p>Value Pair list</p>
+        <div>
+          <div name="key-value-container" id="key-value-container"></div>
+        </div>
+        <div id="list-options" name="list-options">
+          <button type="button" name="sort-by-name" id="sort-by-name">
+            Sort by Name
+          </button>
+          <br />
+          <button type="button" name="sort-by-value" id="sort-by-value">
+            Sort by Value
+          </button>
+          <br />
+          <button type="button" name="delete" id="delete">Delete</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,85 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+input {
+    font-size: large;
+}
+h1  {
+    text-align: center;
+}
+
+textarea{
+    resize: none;
+}
+#input-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+#add-pair {
+    padding: 10px; /* Adds padding inside the buttons */
+    max-width: 120px; /* Optional: Limits button width on larger screens */
+}
+
+#error-message {
+    color: red;
+    font-size: small;
+}
+
+
+* {
+    box-sizing: border-box; /* Ensures padding/border are included in total width/height */
+}
+
+#pairs-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    max-width: 400px; /* Set the desired width for both elements */
+    width: 100%; /* Make it responsive */
+    margin: 0 auto; /* Center #pairs-list */
+}
+
+#key-value-container {
+    font-size: x-large;
+    border: 1px solid black;
+    width: 100%; /* Full width */
+    max-width: 400px; /* Optional: Limit max width */
+    min-width: 300px; /* Ensure it has a minimum width */
+    height: 150px; /* Fixed height */
+    overflow-y: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#list-options {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 10px; /* Space below buttons */
+}
+
+#list-options button {
+    flex: 1; /* Makes each button take equal space */
+    padding: 10px; /* Adds padding inside the buttons */
+    max-width: 120px; /* Optional: Limits button width on larger screens */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    #pairs-list {
+        align-items: stretch; /* Stretch items to full width */
+    }
+
+    #list-options {
+        flex-direction: row; /* Align buttons in a line */
+        width: 100%; /* Full width for buttons */
+        justify-content: space-around; /* Space buttons evenly */
+    }
+
+    #key-value-container {
+        width: 100%; /* Full width for mobile */
+    }
+}
