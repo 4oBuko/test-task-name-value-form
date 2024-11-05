@@ -33,7 +33,7 @@ textarea{
     box-sizing: border-box; /* Ensures padding/border are included in total width/height */
 }
 
-#pairs-list {
+#pairs-list,  #to-xml {
     display: flex;
     text-align: center;
     flex-direction: column; /* Stack items vertically */
@@ -43,7 +43,7 @@ textarea{
     margin: 0 auto; /* Center #pairs-list */
 }
 
-#key-value-container {
+#key-value-container, #xml-data {
     font-size: x-large;
     border: 1px solid black;
     width: 100%; /* Full width */
@@ -68,19 +68,23 @@ textarea{
     max-width: 120px; /* Optional: Limits button width on larger screens */
 }
 
+#xml-data {
+        font-size: large;
+}
+
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     #pairs-list {
         align-items: stretch; /* Stretch items to full width */
     }
 
-    #list-options {
+    #list-options, #to-xml   {
         flex-direction: row; /* Align buttons in a line */
         width: 100%; /* Full width for buttons */
         justify-content: space-around; /* Space buttons evenly */
     }
 
-    #key-value-container {
+    #key-value-container, #xml-data {
         width: 100%; /* Full width for mobile */
     }
 }

@@ -2,7 +2,7 @@ const addButton = document.getElementById("add-pair");
 const sortByNameButton = document.getElementById("sort-by-name");
 const sortByValueButton = document.getElementById("sort-by-value");
 const deleteButton = document.getElementById("delete");
-
+const toXmlButton = document.getElementById("to-xml");
 let storage = new Map();
 
 // Regex checks if the string contains only alphanumeric symbols
@@ -70,6 +70,24 @@ deleteButton.onclick = function () {
   }
 };
 
+toXmlButton.onclick = function () {
+  const xml = getXml();
+  const container = document.getElementById("xml-data");
+  container.innerHTML = escapeXML(xml);
+};
+
+function getXml() {
+  let xml = "<nameValueList>\n";
+  storage.forEach((value, key) => {
+    xml += "<entry>\n";
+    xml += `<key>${key}</key>\n`;
+    xml += `<value>${value}</value>\n`;
+    xml += "</entry>\n";
+  });
+  xml += "</nameValueList>";
+  return xml;
+}
+
 function showItems() {
   const container = document.getElementById("key-value-container");
   //   clear previous elements
@@ -88,4 +106,14 @@ function showItems() {
     container.appendChild(label);
     container.appendChild(document.createElement("br"));
   });
+}
+
+function escapeXML(xml) {
+  return xml
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+    .replace(/\n/g, "<br>");
 }
